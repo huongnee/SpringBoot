@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head th:fragment="head(title)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title}">Quản trị</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<!-- Sidebar -->
+<aside th:fragment="sidebar" class="bg-light p-3">
+  <ul>
+    <li><a th:href="@{/admin/dashboard}">Dashboard</a></li>
+    <li><a th:href="@{/admin/users}">Quản lý người dùng</a></li>
+    <li><a th:href="@{/admin/settings}">Cài đặt</a></li>
+  </ul>
+</aside>
+
+<!-- Footer -->
+<footer th:fragment="footer" class="container bg-dark text-white text-center">
+  <p>© 2025 Công ty ABC - Quản trị</p>
+</footer>
+</body>
+</html>

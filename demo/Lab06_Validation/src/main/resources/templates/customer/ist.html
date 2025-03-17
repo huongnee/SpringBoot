@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<section class="container border my-3 p-2">
+    <h2>Customer List</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Mã</th>
+            <th scope="col">Họ và tên</th>
+            <th scope="col">Tài khoản</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="customer : ${customers}">
+            <td scope="row" th:text="${customer.id}"></td>
+            <td th:text="${customer.fullname}"></td>
+            <td th:text="${customer.userName}"></td>
+            <td th:text="${customer.email}"></td>
+
+            <td>
+                <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a> |
+                <a th:href="@{/customers/delete/{id}(id=${customer.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/customers/new" class="btn btn-primary">Create New Customer</a>
+</section>
+</body>
+</html>

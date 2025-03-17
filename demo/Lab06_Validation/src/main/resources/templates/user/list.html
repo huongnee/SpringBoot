@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<section class="container border my-3 p-2">
+    <h2>User List</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Mã</th>
+            <th scope="col">Họ và tên</th>
+            <th scope="col">Tài khoản</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td scope="row">1</td>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.fullName}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="${user.email}"></td>
+
+            <td>
+                <a th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a> |
+                <a th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/users/new" class="btn btn-primary">Create New User</a>
+</section>
+</body>
+</html>
